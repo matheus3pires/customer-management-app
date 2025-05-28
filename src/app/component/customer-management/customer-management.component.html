@@ -1,0 +1,85 @@
+<po-page-default p-title="Totvs">
+  <form [formGroup]="customerForm" class="po-form">
+
+    <po-input
+      p-label="Name"
+      formControlName="name"
+      p-required
+      name="name"
+    ></po-input>
+
+    <po-input
+      p-label="CPF"
+      formControlName="cpf"
+      p-required
+      name="cpf"
+    ></po-input>
+
+    <div formArrayName="phones" class="po-mt-3">
+      <h4>Phones</h4>
+      <po-button
+        p-label="Add Phone"
+        (p-click)="addPhone()"
+      ></po-button>
+
+      <div *ngFor="let phone of phones.controls; let i = index" [formGroupName]="i" class="po-mt-2">
+        <po-input
+          p-label="Phone"
+          formControlName="number"
+          name="number"
+          p-required
+        ></po-input>
+        <po-button
+          p-label="Remove"
+          (p-click)="removePhone(i)"
+        ></po-button>
+      </div>
+    </div>
+
+    <div formArrayName="addresses" class="po-mt-3">
+      <h4>Addresses</h4>
+      <po-button
+        p-label="Add Address"
+        (p-click)="addAddress()"
+      ></po-button>
+
+      <div *ngFor="let address of addresses.controls; let i = index" [formGroupName]="i" class="po-mt-2">
+        <po-input p-label="Street" formControlName="street" p-required></po-input>
+        <po-input p-label="Complement" formControlName="complement"></po-input>
+        <po-input p-label="City" formControlName="city" p-required></po-input>
+        <po-input p-label="State" formControlName="state" p-required></po-input>
+        <po-input p-label="Zip Code" formControlName="zipCode" p-required></po-input>
+        <po-button
+          p-label="Remove"
+          (p-click)="removeAddress(i)"
+        ></po-button>
+      </div>
+    </div>
+
+    <div class="po-mt-4">
+      <po-button
+        p-label="{{ isEditing ? 'Update' : 'Save' }}"
+        (p-click)="save()"
+      ></po-button>
+
+      <po-button
+        p-label="Cancel"
+        (p-click)="clearForm()"
+        *ngIf="isEditing"
+      ></po-button>
+    </div>
+  </form>
+
+  <po-divider></po-divider>
+
+  <h3>Registered Clients</h3>
+  <ul>
+    <li *ngFor="let customer of customers">
+      <span>{{ customer.name }} - {{ customer.cpf }}</span>
+      <div class="action-buttons">
+        <po-button p-label="Edit" (p-click)="editCustomer(customer)"></po-button>
+        <po-button p-label="Delete" (p-click)="deleteCustomer(customer.cpf)"></po-button>
+      </div>
+    </li>
+  </ul>
+</po-page-default>
