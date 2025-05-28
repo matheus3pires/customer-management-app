@@ -1,12 +1,29 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+import {
+  PoMenuItem,
+  PoMenuModule,
+  PoPageModule,
+  PoToolbarModule,
+} from '@po-ui/ng-components';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    CommonModule,
+    PoToolbarModule,
+    PoMenuModule,
+    PoPageModule,
+    RouterOutlet
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'customermanagement-app';
+  readonly menus: Array<PoMenuItem> = [
+    { label: 'Home', link: '/home' },
+    { label: 'Customer Management', link: '/customer-management' }
+  ];
 }
