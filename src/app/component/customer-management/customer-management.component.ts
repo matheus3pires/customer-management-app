@@ -54,11 +54,18 @@ export class CustomerManagementComponent {
   }
 
   addPhone(): void {
-    this.phones.push(
-      this.fb.group({
-        number: ['', Validators.required, Validators.pattern(/^\d+$/), Validators.maxLength(20)]
-      })
-    );
+    const phoneForm = this.fb.group({
+      number: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^\d+$/),
+          Validators.maxLength(20)
+        ]
+      ]
+    });
+
+    this.phones.push(phoneForm);
   }
 
   removePhone(index: number): void {
