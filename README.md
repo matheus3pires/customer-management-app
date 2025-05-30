@@ -1,59 +1,59 @@
-# CustomermanagementApp
+# Customer Management - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+Este repositório contém apenas o **frontend** do desafio técnico da TOTVS para cadastro de clientes.
+
+> **Atenção:** Este projeto **não possui Dockerfile** e depende do backend disponível em:  
+> [https://github.com/matheus3pires/customer-management](https://github.com/matheus3pires/customer-management)
+
+---
+
+## Sobre o desafio
+
+Desenvolvimento de uma interface web para gerenciamento de clientes, permitindo:
+
+- Cadastro de clientes com os campos:
+  - Nome (mínimo 10 caracteres)
+  - CPF (válido e único)
+  - Telefones (um ou mais, formato válido, não duplicado)
+  - Endereços (um ou mais)
+
+## Tecnologias
+
+- Angular 17+
+- PO-UI
+- TypeScript
+- HTML/CSS
+
+---
 
 ## Development server
 
-To start a local development server, run:
+Para iniciar o servidor de desenvolvimento local, execute:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Depois que o servidor estiver ativo, acesse [http://localhost:4200/](http://localhost:4200/).  
+A aplicação irá recarregar automaticamente sempre que você modificar os arquivos-fonte.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Projeto Fullstack
 
+Se você deseja rodar a solução **completa** (backend, frontend e banco de dados) utilizando apenas o Docker, utilize o repositório abaixo:
+
+- [https://github.com/matheus3pires/technical-challenge](https://github.com/matheus3pires/technical-challenge)
+
+Neste repositório fullstack:
+
+- Estão disponíveis **todos os Dockerfiles necessários** dentro da pasta de cada projeto `backend` e `frontend`.  
+- O Docker Compose irá, primeiro, buildar o backend e o frontend usando os respectivos Dockerfiles presentes em cada pasta.
+- Após o build, o Docker Compose irá subir o banco de dados, o backend e o frontend prontos para uso.
+
+Basta executar:
 ```bash
-ng generate component component-name
+docker-compose up
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+para rodar todo o sistema integrado.
