@@ -28,6 +28,8 @@
           formControlName="number"
           name="number"
           p-required
+          pattern="\d*"
+          maxlength="20"
         ></po-input>
         <po-button
           p-label="Remove"
@@ -74,12 +76,33 @@
 
   <h3>Registered Clients</h3>
   <ul>
-    <li *ngFor="let customer of customers">
-      <span>{{ customer.name }} - {{ customer.cpf }}</span>
+    <li *ngFor="let customer of customers" class="po-mb-4">
+      <strong>Name:</strong> {{ customer.name }}<br>
+      <strong>CPF:</strong> {{ customer.cpf }}<br>
+
+      <strong>Phones:</strong>
+      <ul>
+        <li *ngFor="let phone of customer.phones">
+          {{ phone.number }}
+        </li>
+      </ul>
+
+      <strong>Addresses:</strong>
+      <ul>
+        <li *ngFor="let address of customer.addresses">
+          Street: {{ address.street }}<br>
+          Complement: {{ address.complement }}<br>
+          City: {{ address.city }}<br>
+          State: {{ address.state }}<br>
+          Zip Code: {{ address.zipCode }}
+        </li>
+      </ul>
+
       <div class="action-buttons">
         <po-button p-label="Edit" (p-click)="editCustomer(customer)"></po-button>
         <po-button p-label="Delete" (p-click)="deleteCustomer(customer.cpf)"></po-button>
       </div>
+      <po-divider></po-divider>
     </li>
   </ul>
 </po-page-default>

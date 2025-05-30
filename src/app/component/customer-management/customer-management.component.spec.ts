@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { CustomerManagementComponent } from './customer-management.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { of, throwError } from 'rxjs';
+import { of } from 'rxjs';
 import { ClientService } from '../../service/cliente.service';
-import { ClientRequestPayload } from '../../payload/client-payload';
 
 const mockClientService = {
   getAllClients: jasmine.createSpy().and.returnValue(of([])),

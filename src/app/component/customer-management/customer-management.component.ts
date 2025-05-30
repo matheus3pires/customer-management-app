@@ -34,17 +34,13 @@ export class CustomerManagementComponent {
   originalCpf: string | null = null;
   isEditing = false;
 
-
   constructor(private fb: FormBuilder, private clientService: ClientService) {
     this.customerForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(10)]],  // 10 char min as requested
+      name: ['', [Validators.required, Validators.minLength(10)]],
       cpf: ['', [Validators.required, Validators.pattern(/^\d{11}$/)]],
       phones: this.fb.array([]),
       addresses: this.fb.array([])
-
     });
-
-
 
     this.loadCustomers();
   }
@@ -60,7 +56,7 @@ export class CustomerManagementComponent {
   addPhone(): void {
     this.phones.push(
       this.fb.group({
-        number: ['', Validators.required]
+        number: ['', Validators.required, Validators.pattern(/^\d+$/), Validators.maxLength(20)]
       })
     );
   }

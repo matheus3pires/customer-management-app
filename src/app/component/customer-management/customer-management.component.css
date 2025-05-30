@@ -15,19 +15,30 @@ po-container {
   background-color: #fafafa;
 }
 
-input {
-  width: 100%;
-  margin-top: 6px;
-  margin-bottom: 12px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+.po-mt-2,
+.po-mt-3,
+.po-mt-4 {
+  margin-top: 8px;
 }
 
-button {
-  margin-right: 8px;
-  margin-top: 8px;
+.po-mb-4 {
+  margin-bottom: 16px;
+}
+
+.po-mt-3 {
+  margin-top: 24px;
+}
+
+.po-mt-4 {
+  margin-top: 32px;
+}
+
+.po-mb-2 {
+  margin-bottom: 8px;
+}
+
+.po-mb-4 {
+  margin-bottom: 16px;
 }
 
 ul {
@@ -39,16 +50,24 @@ ul {
 
 li {
   background: #f5f5f5;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   padding: 12px;
   border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
 }
 
-li button {
-  margin-left: 8px;
+li ul {
+  margin: 8px 0 8px 20px;
+  padding-left: 0;
+}
+
+li ul li {
+  background: none;
+  padding: 4px 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  display: list-item;
+  list-style: disc;
 }
 
 h3 {
@@ -67,4 +86,9 @@ h4 {
 .action-buttons {
   display: flex;
   gap: 8px;
+  margin-top: 12px;
+}
+
+button {
+  margin-top: 8px;
 }
